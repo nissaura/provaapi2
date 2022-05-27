@@ -53,6 +53,18 @@ export function DiaSemana (dia)
     return msg
 }
 
+export function Fatorial (numero)
+{
+    let a = 1;
+
+    for (let i = numero; i > 1; i--) {
+        
+        a *= i;
+    }
+    return a;
+}
+
+
 
 //Claudia Nissara n°8
 //Danilo Oliveira n°9

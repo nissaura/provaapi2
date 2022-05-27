@@ -1,4 +1,4 @@
-import { Semaforo, DiaSemana} from './services.js'
+import { Semaforo, DiaSemana, Fatorial} from './services.js'
  
 
 import { Router } from 'express';
@@ -24,8 +24,15 @@ server.get('/DiaSemana/:dia', (req, resp) => {
     })
 })
 
+server.post('/Fatorial', (req, resp) => {
+    let numero = req.body.numero
+    let f = Fatorial (numero)
+    resp.send({
+        Fatorial: f
+    })
+})
 
-
+server.post('/SequenciaPar')
 
 
 
