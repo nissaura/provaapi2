@@ -64,6 +64,17 @@ export function Fatorial (numero)
     return a;
 }
 
+export function sequenciaPar(limite)
+    {
+            let x = []
+            let num = 0
+
+            for(let i = 0; i <= limite ; i++) {
+                x[i] = num * 2
+                num++
+            }
+            return x;
+    }
 
 
 //Claudia Nissara n°8

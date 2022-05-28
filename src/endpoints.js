@@ -1,4 +1,4 @@
-import { Semaforo, DiaSemana, Fatorial} from './services.js'
+import { Semaforo, DiaSemana, Fatorial, sequenciaPar} from './services.js'
  
 
 import { Router } from 'express';
@@ -9,31 +9,68 @@ const server = Router();
 
 
 server.get('/Semaforo/:cor', (req, resp) => {
-   let cor = req.params.cor
-   let s = Semaforo(cor) 
-    resp.send ({
-        Semaforo: s
-    })  
+    try{
+        let cor = req.params.cor
+        let s = Semaforo(cor) 
+        resp.send ({
+            Semaforo: s
+        })
+    }
+    catch(err)
+    {
+        resp.send({
+            erro: err.message
+        })
+    }      
 })
 
 server.get('/DiaSemana/:dia', (req, resp) => {
-    let dia = req.params.dia
-    let d = DiaSemana(dia)
-    resp.send({
-        DiaSemana: d
-    })
+    try{
+        let dia = req.params.dia
+        let d = DiaSemana(dia)
+        resp.send({
+            DiaSemana: d
+        })
+    }
+    catch(err)
+    {
+        resp.send({
+            erro: err.message
+        })
+    }
 })
 
 server.post('/Fatorial', (req, resp) => {
-    let numero = req.body.numero
-    let f = Fatorial (numero)
-    resp.send({
-        Fatorial: f
-    })
+    try{
+        let numero = req.body.numero
+        let f = Fatorial (numero)
+        resp.send({
+            Fatorial: f
+        })
+    }
+    catch(err)
+    {
+        resp.send({
+            erro: err.message
+        })
+    }    
 })
 
-server.post('/SequenciaPar')
-
+server.post('/sequenciaPar', (req, resp) =>{
+    try{
+        const a = req.body.a
+        const x = sequenciaPar(a)
+        resp.send ({
+            sequencia : x
+        })
+    }
+    catch(err)
+    {
+        resp.send({
+            erro: err.message
+        })
+    }    
+} )
 
 
 
